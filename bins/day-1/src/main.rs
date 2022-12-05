@@ -5,6 +5,12 @@ use std::env;
 static InputContents: &'static str = include_str!("./input.txt");
 static TestContents: &'static str = include_str!("./test_input.txt");
 
+fn useTestInput() -> bool {
+    let args = env::args().collect::<Vec<String>>();
+
+    return args.contains(&String::from("test"));
+}
+
 fn largestCalories(elves: &Vec<Vec<u32>>) -> u32 {
     let mut largest: u32 = 0;
     for elf in elves.iter() {
@@ -15,12 +21,6 @@ fn largestCalories(elves: &Vec<Vec<u32>>) -> u32 {
     }
 
     return largest;
-}
-
-fn useTestInput() -> bool {
-    let args = env::args().collect::<Vec<String>>();
-
-    return args.contains(&String::from("test"));
 }
 
 fn main() {
