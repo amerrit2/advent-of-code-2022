@@ -108,8 +108,6 @@ fn moveCrates(state: &mut State, craneType: &CraneType) -> String {
         }
     }
 
-    // println!("Final stacks: {:?}", state.stacks);
-
     return state.stacks.iter().map(|stack| stack.last().unwrap()).collect::<String>();
 }
 

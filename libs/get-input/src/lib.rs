@@ -4,7 +4,7 @@ use std::env;
 use std::fs::{File, create_dir_all};
 use std::io::{Read, Write};
 
-fn useTestInput() -> bool {
+pub fn useTestInput() -> bool {
     let args = env::args().collect::<Vec<String>>();
     return args.contains(&String::from("test"));
 }
@@ -18,13 +18,14 @@ pub fn getInput(year: &u32, day: &u32, testInput: &str) -> String {
     path.push(format!("aoc-input\\{}\\{}\\input.txt", year, day));
 
     if path.exists() {
+        println!("Using cached test input");
         let mut contents = String::new();
         let mut file = File::open(path).unwrap();
         file.read_to_string(&mut contents).unwrap();
         return contents;
     }
 
-
+    println!("Fetching test input from the web");
     let url = format!("https://adventofcode.com/{}/day/{}/input", year, day);
     let res: ureq::Response = ureq::get(&url)
         .set("Cookie", "session=53616c7465645f5f512cbc78ccfeca9a9810a03d8151f22d2fc5ea5e53a3572267c255b9cbe2df0876afb15040f2d75b13ec95cbebf3abb162228c8d81d11713")
