@@ -117,12 +117,19 @@ name = "day-1"
 version = "0.1.0"
 
 [[package]]
+<<<<<<< HEAD
 name = "day-11"
 version = "0.1.0"
 dependencies = [
  "get-input",
  "num",
  "regex",
+=======
+name = "day-10"
+version = "0.1.0"
+dependencies = [
+ "get-input",
+>>>>>>> day 10?
 ]
 
 [[package]]
