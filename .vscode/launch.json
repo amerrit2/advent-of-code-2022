@@ -166,5 +166,23 @@
             "args": ["test"],
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'day-11'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=day-11",
+                    "--package=day-11"
+                ],
+                "filter": {
+                    "name": "day-11",
+                    "kind": "bin"
+                }
+            },
+            "args": ["test"],
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }
